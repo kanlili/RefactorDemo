@@ -37,7 +37,7 @@ public class gildedRoseTest {
         Assert.assertEquals(0,item.quality);
     }
     @Test
-    public void should_return_6_when_call_updateQuality_given_name_AgedBrie_sillin_10_items_qualty5(){
+    public void should_return_6and9_when_call_updateQuality_given_name_AgedBrie_sillin_10_items_qualty5(){
         Item item=new Item(Aged_Brie,10,5);
         Item[] items=new Item[]{item};
         GildedRose gildedRose=new GildedRose(items);
@@ -45,5 +45,13 @@ public class gildedRoseTest {
         Assert.assertEquals(6,item.quality);
         Assert.assertEquals(9,item.sellIn);
     }
-
+    @Test
+    public void should_return_9and50_when_call_updateQuality_given_name_AgedBrie_sillin_10_items_qualty50(){
+        Item item=new Item(Aged_Brie,10,50);
+        Item[] items=new Item[]{item};
+        GildedRose gildedRose=new GildedRose(items);
+        gildedRose.updateQuality();
+        Assert.assertEquals(50,item.quality);
+        Assert.assertEquals(9,item.sellIn);
+    }
 }
