@@ -108,4 +108,13 @@ public class gildedRoseTest {
         Assert.assertEquals(0,item.quality);
         Assert.assertEquals(-1,item.sellIn);
     }
+    @Test
+    public void should_return_50_when_call_updateQuality_given_name_Sulfuras_Hand_sillin_10_items_qualty50(){
+        Item item=new Item(Backstage_passes,10,50);
+        Item[] items=new Item[]{item};
+        GildedRose gildedRose=new GildedRose(items);
+        gildedRose.updateQuality();
+        Assert.assertEquals(50,item.quality);
+
+    }
 }
