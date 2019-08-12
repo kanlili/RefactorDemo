@@ -43,5 +43,7 @@ public class gildedRoseTest {
         GildedRose gildedRose=new GildedRose(items);
         gildedRose.updateQuality();
         Assert.assertEquals(6,item.quality);
+        Assert.assertEquals(9,item.sellIn);
     }
+
 }
