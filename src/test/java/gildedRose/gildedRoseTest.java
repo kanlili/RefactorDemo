@@ -72,4 +72,13 @@ public class gildedRoseTest {
         Assert.assertEquals(50,item.quality);
         Assert.assertEquals(-1,item.sellIn);
     }
+    @Test
+    public void should_return_50and9_when_call_updateQuality_given_name_AgedBrie_sillin_10_items_qualty49(){
+        Item item=new Item(Aged_Brie,10,49);
+        Item[] items=new Item[]{item};
+        GildedRose gildedRose=new GildedRose(items);
+        gildedRose.updateQuality();
+        Assert.assertEquals(50,item.quality);
+        Assert.assertEquals(9,item.sellIn);
+    }
 }
