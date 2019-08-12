@@ -1,6 +1,6 @@
 package gildedRose;
 
-public class Aged_Brie {
+public class Aged_Brie implements ItemStrategy {
     ItemValidator itemValidator=new ItemValidator();
     public void handle(Item item){
         itemValidator.changeBackstage_passesQuality(item);

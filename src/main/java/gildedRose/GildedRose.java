@@ -24,7 +24,7 @@ public class GildedRose {
                    sulfuras.handle(item);
                    break;
                default:
-                    otherItemName.handle(item);
+                   otherItemName.handle(item);
 
            }
 

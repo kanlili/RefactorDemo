@@ -1,6 +1,6 @@
 package gildedRose;
 
-public class OtherItemName {
+public class OtherItemName implements ItemStrategy{
     ItemUpdated itemUpdated=new ItemUpdated();
     ItemValidator itemValidator=new ItemValidator();
     public void handle(Item item){
