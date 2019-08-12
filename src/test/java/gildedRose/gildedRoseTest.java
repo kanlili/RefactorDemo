@@ -99,4 +99,13 @@ public class gildedRoseTest {
         Assert.assertEquals(50,item.quality);
         Assert.assertEquals(4,item.sellIn);
     }
+    @Test
+    public void should_return_0and_minus_1_when_call_updateQuality_given_name_Backstage_passes_sillin_0_items_qualty50(){
+        Item item=new Item(Backstage_passes,0,50);
+        Item[] items=new Item[]{item};
+        GildedRose gildedRose=new GildedRose(items);
+        gildedRose.updateQuality();
+        Assert.assertEquals(0,item.quality);
+        Assert.assertEquals(-1,item.sellIn);
+    }
 }
