@@ -16,42 +16,10 @@ public class GildedRose {
                         }
                     }
                 } else {
-                    if (item.quality < 50) {
-                        addQuality(item);
-
-                        if (isEqualsBackstage_passes(item)) {
-                            if (item.sellIn < 11) {
-                                if (item.quality < 50) {
-                                    addQuality(item);
-                                }
-                            }
-
-                            if (item.sellIn < 6) {
-                                if (item.quality < 50) {
-                                    addQuality(item);
-                                }
-                            }
-                        }
-                    }
+                    changeBackstage_passesQuality(item);
                 }
             } else {
-                if (item.quality < 50) {
-                    addQuality(item);
-
-                    if (isEqualsBackstage_passes(item)) {
-                        if (item.sellIn < 11) {
-                            if (item.quality < 50) {
-                                addQuality(item);
-                            }
-                        }
-
-                        if (item.sellIn < 6) {
-                            if (item.quality < 50) {
-                                addQuality(item);
-                            }
-                        }
-                    }
-                }
+                changeBackstage_passesQuality(item);
             }
 
             if (!isEqualsSulfuras(item)) {
@@ -70,6 +38,26 @@ public class GildedRose {
                         item.quality = item.quality - item.quality;
                     }
                 } else {
+                    if (item.quality < 50) {
+                        addQuality(item);
+                    }
+                }
+            }
+        }
+    }
+
+    private void changeBackstage_passesQuality(Item item) {
+        if (item.quality < 50) {
+            addQuality(item);
+
+            if (isEqualsBackstage_passes(item)) {
+                if (item.sellIn < 11) {
+                    if (item.quality < 50) {
+                        addQuality(item);
+                    }
+                }
+
+                if (item.sellIn < 6) {
                     if (item.quality < 50) {
                         addQuality(item);
                     }
