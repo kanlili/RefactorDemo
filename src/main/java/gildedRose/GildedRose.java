@@ -4,6 +4,7 @@ public class GildedRose {
     ItemUpdated itemUpdated=new ItemUpdated();
     ItemValidator itemValidator=new ItemValidator();
     Aged_Brie aged_brie=new Aged_Brie();
+    Backstage_passes backstage_passes=new Backstage_passes();
     public GildedRose(Item[] items) {
         this.items = items;
     }
@@ -15,11 +16,7 @@ public class GildedRose {
                    aged_brie.handle(item);
                    break;
                case "Backstage passes to a TAFKAL80ETC concert":
-                   itemValidator.changeBackstage_passesQuality(item);
-                   item.sellIn--;
-                   if (itemValidator.isItemSellInMinus0(item)){
-                       item.quality = 0;
-                   }
+                   backstage_passes.handle(item);
                    break;
                case "Sulfuras, Hand of Ragnaros":
                    itemValidator.changeBackstage_passesQuality(item);
