@@ -1,7 +1,7 @@
 package gildedRose;
 public class GildedRose {
     Item[] items;
-
+    ItemUpdated itemUpdated=new ItemUpdated();
     public GildedRose(Item[] items) {
         this.items = items;
     }
@@ -12,14 +12,14 @@ public class GildedRose {
                case "Aged Brie" :
                    changeBackstage_passesQuality(item);
                    item.sellIn--;
-                   if (item.sellIn < 0){
+                   if (isItemSellInMinus0(item)){
                        IsMinus50forQuality(item);
                    }
                    break;
                case "Backstage passes to a TAFKAL80ETC concert":
                    changeBackstage_passesQuality(item);
                    item.sellIn--;
-                   if (item.sellIn < 0){
+                   if (isItemSellInMinus0(item)){
                        item.quality = 0;
                    }
                    break;
@@ -28,12 +28,12 @@ public class GildedRose {
                    break;
                default:
                     if (notReachMinQuality(item)){
-                        decreaceQuality(item);
+                       itemUpdated.decreaceQuality(item);
                     }
                     item.sellIn--;
-                    if (item.sellIn < 0){
+                    if (isItemSellInMinus0(item)){
                         if (notReachMinQuality(item)){
-                            decreaceQuality(item);
+                            itemUpdated.decreaceQuality(item);
                         }
                     }
 
@@ -42,9 +42,13 @@ public class GildedRose {
         }
     }
 
+    private boolean isItemSellInMinus0(Item item) {
+        return item.sellIn < 0;
+    }
+
     private void IsMinus50forQuality(Item item) {
         if (item.quality < 50) {
-            addQuality(item);
+            itemUpdated.addQuality(item);
         }
     }
     private boolean notReachMinQuality(Item item) {
@@ -65,15 +69,6 @@ public class GildedRose {
             }
         }
     }
-
-    public void addQuality(Item item) {
-        item.quality ++;
-    }
-
-    private void decreaceQuality(Item item) {
-        item.quality = item.quality - 1;
-    }
-
     private boolean isEqualsSulfuras(Item item) {
         return item.name.equals("Sulfuras, Hand of Ragnaros");
     }
