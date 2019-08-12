@@ -110,7 +110,7 @@ public class gildedRoseTest {
     }
     @Test
     public void should_return_50_when_call_updateQuality_given_name_Sulfuras_Hand_sillin_10_items_qualty50(){
-        Item item=new Item(Backstage_passes,10,50);
+        Item item=new Item(Sulfuras_Hand,10,50);
         Item[] items=new Item[]{item};
         GildedRose gildedRose=new GildedRose(items);
         gildedRose.updateQuality();

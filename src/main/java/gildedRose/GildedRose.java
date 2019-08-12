@@ -8,66 +8,62 @@ public class GildedRose {
 
     public void updateQuality() {
         for (Item item:items) {
-            if (!isAgedBrie(item)) {
-                if (!isEqualsBackstage_passes(item)) {
-                    if (item.quality > 0) {
-                        if (!isEqualsSulfuras(item)) {
-                            decreaceQuality(item);
-                        }
-                    }
-                } else {
-                    changeBackstage_passesQuality(item);
-                }
-            } else {
+            if(isAgedBrie(item)){
                 changeBackstage_passesQuality(item);
-            }
-
-            if (!isEqualsSulfuras(item)) {
-                item.sellIn = item.sellIn - 1;
-            }
-
-            if (item.sellIn < 0) {
-                if (!isAgedBrie(item)) {
-                    if (!isEqualsBackstage_passes(item)) {
-                        if (item.quality > 0) {
-                            if (!isEqualsSulfuras(item)) {
-                                decreaceQuality(item);
-                            }
-                        }
-                    } else {
-                        item.quality = item.quality - item.quality;
-                    }
-                } else {
-                    if (item.quality < 50) {
-                        addQuality(item);
+                item.sellIn--;
+                if (item.sellIn < 0){
+                    IsMinus50forQuality(item);
+                }
+            }else if(isEqualsBackstage_passes(item)){
+                changeBackstage_passesQuality(item);
+                item.sellIn--;
+                if (item.sellIn < 0){
+                    item.quality = 0;
+                }
+            }else if(isEqualsSulfuras(item)){
+                changeBackstage_passesQuality(item);
+            }else{
+                if (notReachMinQuality(item)){
+                    decreaceQuality(item);
+                }
+                item.sellIn--;
+                if (item.sellIn < 0){
+                    if (notReachMinQuality(item)){
+                        decreaceQuality(item);
                     }
                 }
             }
+
+
         }
     }
 
-    private void changeBackstage_passesQuality(Item item) {
+    private void IsMinus50forQuality(Item item) {
         if (item.quality < 50) {
             addQuality(item);
+        }
+    }
+    private boolean notReachMinQuality(Item item) {
+        return item.quality > 0;
+    }
 
+    public void changeBackstage_passesQuality(Item item) {
+        if (item.quality < 50) {
+            item.quality ++;
             if (isEqualsBackstage_passes(item)) {
                 if (item.sellIn < 11) {
-                    if (item.quality < 50) {
-                        addQuality(item);
-                    }
+                    IsMinus50forQuality(item);
                 }
 
                 if (item.sellIn < 6) {
-                    if (item.quality < 50) {
-                        addQuality(item);
-                    }
+                    IsMinus50forQuality(item);
                 }
             }
         }
     }
 
-    private void addQuality(Item item) {
-        item.quality = item.quality + 1;
+    public void addQuality(Item item) {
+        item.quality ++;
     }
 
     private void decreaceQuality(Item item) {
