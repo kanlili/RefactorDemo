@@ -6,7 +6,7 @@ public class GildedRose {
     Aged_Brie aged_brie=new Aged_Brie();
     Backstage_passes backstage_passes=new Backstage_passes();
     Sulfuras sulfuras=new Sulfuras();
-
+    OtherItemName otherItemName=new OtherItemName();
     public GildedRose(Item[] items) {
         this.items = items;
     }
@@ -24,15 +24,7 @@ public class GildedRose {
                    sulfuras.handle(item);
                    break;
                default:
-                    if (itemValidator.notReachMinQuality(item)){
-                       itemUpdated.decreaceQuality(item);
-                    }
-                    item.sellIn--;
-                    if (itemValidator.isItemSellInMinus0(item)){
-                        if (itemValidator.notReachMinQuality(item)){
-                            itemUpdated.decreaceQuality(item);
-                        }
-                    }
+                    otherItemName.handle(item);
 
            }
 
