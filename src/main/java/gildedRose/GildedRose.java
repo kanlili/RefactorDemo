@@ -8,11 +8,30 @@ public class GildedRose {
 
     public void updateQuality() {
         for (Item item:items) {
-            if (!isAgedBrie(item)
-                    && !isEqualsBackstage_passes(item)) {
-                if (item.quality > 0) {
-                    if (!isEqualsSulfuras(item)) {
-                        decreaceQuality(item);
+            if (!isAgedBrie(item)) {
+                if (!isEqualsBackstage_passes(item)) {
+                    if (item.quality > 0) {
+                        if (!isEqualsSulfuras(item)) {
+                            decreaceQuality(item);
+                        }
+                    }
+                } else {
+                    if (item.quality < 50) {
+                        addQuality(item);
+
+                        if (isEqualsBackstage_passes(item)) {
+                            if (item.sellIn < 11) {
+                                if (item.quality < 50) {
+                                    addQuality(item);
+                                }
+                            }
+
+                            if (item.sellIn < 6) {
+                                if (item.quality < 50) {
+                                    addQuality(item);
+                                }
+                            }
+                        }
                     }
                 }
             } else {
