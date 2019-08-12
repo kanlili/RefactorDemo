@@ -5,6 +5,8 @@ public class GildedRose {
     ItemValidator itemValidator=new ItemValidator();
     Aged_Brie aged_brie=new Aged_Brie();
     Backstage_passes backstage_passes=new Backstage_passes();
+    Sulfuras sulfuras=new Sulfuras();
+
     public GildedRose(Item[] items) {
         this.items = items;
     }
@@ -19,7 +21,7 @@ public class GildedRose {
                    backstage_passes.handle(item);
                    break;
                case "Sulfuras, Hand of Ragnaros":
-                   itemValidator.changeBackstage_passesQuality(item);
+                   sulfuras.handle(item);
                    break;
                default:
                     if (itemValidator.notReachMinQuality(item)){
