@@ -3,6 +3,7 @@ public class GildedRose {
     Item[] items;
     ItemUpdated itemUpdated=new ItemUpdated();
     ItemValidator itemValidator=new ItemValidator();
+    Aged_Brie aged_brie=new Aged_Brie();
     public GildedRose(Item[] items) {
         this.items = items;
     }
@@ -11,11 +12,7 @@ public class GildedRose {
         for (Item item:items) {
            switch(item.name){
                case "Aged Brie" :
-                   itemValidator.changeBackstage_passesQuality(item);
-                   item.sellIn--;
-                   if (itemValidator.isItemSellInMinus0(item)){
-                       itemValidator.IsMinus50forQuality(item);
-                   }
+                   aged_brie.handle(item);
                    break;
                case "Backstage passes to a TAFKAL80ETC concert":
                    itemValidator.changeBackstage_passesQuality(item);
