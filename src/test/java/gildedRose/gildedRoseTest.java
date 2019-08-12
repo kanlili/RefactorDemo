@@ -14,7 +14,7 @@ public class gildedRoseTest {
     private  static final String Sulfuras_Hand="Sulfuras, Hand of Ragnaros";
     @Test
     public void should_return_2_when_call_updateQuality_given_items_qualty3(){
-        Item item=new Item("Backstage passes",10,3);
+        Item item=new Item(Other_Name,10,3);
         Item[] items=new Item[]{item};
         GildedRose gildedRose=new GildedRose(items);
         gildedRose.updateQuality();
@@ -22,10 +22,18 @@ public class gildedRoseTest {
     }
     @Test
     public void should_return_1_when_call_updateQuality_given_items_qualty3_sillin_minus1(){
-        Item item=new Item("Backstage passes",-1,3);
+        Item item=new Item(Other_Name,-1,3);
         Item[] items=new Item[]{item};
         GildedRose gildedRose=new GildedRose(items);
         gildedRose.updateQuality();
         Assert.assertEquals(1,item.quality);
+    }
+    @Test
+    public void should_return_0_when_call_updateQuality_given_name_otherName_sillin_10_items_qualty0(){
+        Item item=new Item(Other_Name,10,0);
+        Item[] items=new Item[]{item};
+        GildedRose gildedRose=new GildedRose(items);
+        gildedRose.updateQuality();
+        Assert.assertEquals(0,item.quality);
     }
 }
