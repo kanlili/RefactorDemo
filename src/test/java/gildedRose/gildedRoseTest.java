@@ -81,4 +81,22 @@ public class gildedRoseTest {
         Assert.assertEquals(50,item.quality);
         Assert.assertEquals(9,item.sellIn);
     }
+    @Test
+    public void should_return_50and9_when_call_updateQuality_given_name_Backstage_passes_sillin_10_items_qualty48(){
+        Item item=new Item(Backstage_passes,10,48);
+        Item[] items=new Item[]{item};
+        GildedRose gildedRose=new GildedRose(items);
+        gildedRose.updateQuality();
+        Assert.assertEquals(50,item.quality);
+        Assert.assertEquals(9,item.sellIn);
+    }
+    @Test
+    public void should_return_50and4_when_call_updateQuality_given_name_Backstage_passes_sillin_5_items_qualty47(){
+        Item item=new Item(Backstage_passes,5,47);
+        Item[] items=new Item[]{item};
+        GildedRose gildedRose=new GildedRose(items);
+        gildedRose.updateQuality();
+        Assert.assertEquals(50,item.quality);
+        Assert.assertEquals(4,item.sellIn);
+    }
 }
