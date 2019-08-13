@@ -29,15 +29,7 @@ public class ItemValidator {
             }
         }
     }
-    protected boolean isEqualsSulfuras(Item item) {
-        return item.name.equals("Sulfuras, Hand of Ragnaros");
-    }
-
     protected boolean isEqualsBackstage_passes(Item item) {
         return item.name.equals("Backstage passes to a TAFKAL80ETC concert");
-    }
-
-    protected boolean isAgedBrie(Item items){
-        return  items.name.equals("Aged Brie");
     }
 }
