@@ -118,7 +118,7 @@ public class gildedRoseTest {
 
     }
     @Test
-    public void should_return_16_when_call_updateQuality_given_name_Sulfuras_Hand_sillin_10_items_qualty20(){
+    public void should_return_18_when_call_updateQuality_given_name_Conjured_sillin_10_items_qualty20(){
         Item item=new Item("Conjured",10,20);
         Item[] items=new Item[]{item};
         GildedRose gildedRose=new GildedRose(items);
@@ -126,4 +126,5 @@ public class gildedRoseTest {
         Assert.assertEquals(18,item.quality);
 
     }
+
 }
