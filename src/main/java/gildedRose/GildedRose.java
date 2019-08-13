@@ -10,7 +10,6 @@ public class GildedRose {
     public GildedRose(Item[] items) {
         this.items = items;
     }
-
     public void updateQuality() {
         for (Item item:items) {
            switch(item.name){
@@ -29,6 +28,7 @@ public class GildedRose {
            }
 
         }
+
     }
 
 }
