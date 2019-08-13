@@ -12,6 +12,7 @@ public class GildedRose {
         itemStrategies.add(new Backstage_passes());
         itemStrategies.add(new Sulfuras());
         itemStrategies.add(new OtherItemName());
+        itemStrategies.add(new CoujuredItem());
     }
     public GildedRose(Item[] items) {
         this.items = items;
