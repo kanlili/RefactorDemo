@@ -1,10 +1,13 @@
 package gildedRose;
 
 public class HandleItem {
-    private  ItemStrategy itemStrategy;
+      private  ItemStrategy itemStrategy;
+
 
     public HandleItem(ItemStrategy itemStrategy) {
         this.itemStrategy = itemStrategy;
-        //public
+    }
+    public void   handle(Item item){
+        itemStrategy.handle(item);
     }
 }

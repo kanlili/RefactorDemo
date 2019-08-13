@@ -109,7 +109,7 @@ public class gildedRoseTest {
         Assert.assertEquals(-1,item.sellIn);
     }
     @Test
-    public void should_return_50_when_call_updateQuality_given_name_Sulfuras_Hand_sillin_10_items_qualty50(){
+    public void should_return_80_when_call_updateQuality_given_name_Sulfuras_Hand_sillin_10_items_qualty80(){
         Item item=new Item(Sulfuras_Hand,10,80);
         Item[] items=new Item[]{item};
         GildedRose gildedRose=new GildedRose(items);
